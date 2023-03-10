@@ -9,6 +9,7 @@ import { TReduxState } from "@redux/store/configureStore";
 import { getActiveRouteName, navigationTheme } from "./stacks/StackConfig";
 import { ThemeContext } from "./theme";
 import NewsList from "@screens/NewsList";
+import Detail from "@screens/Detail";
 
 const Authentication = createStackNavigator();
 const BaseStack = createStackNavigator();
@@ -44,6 +45,7 @@ const AppContainer = () => {
     return (
       <BaseStack.Navigator>
         <BaseStack.Screen name={AppRoutes.NEWS_LIST} component={NewsList} />
+        <BaseStack.Screen name={AppRoutes.DETAIL} component={Detail} />
       </BaseStack.Navigator>
     );
   };
@@ -55,11 +57,7 @@ const AppContainer = () => {
       onStateChange={onStateChange}
     >
       <>
-        {!authState.jwtAccessToken ? (
-          <AuthenticationNavigator />
-        ) : (
-          <BaseNavigator />
-        )}
+        <BaseNavigator />
         <RXStore />
       </>
     </NavigationContainer>

@@ -1,6 +1,9 @@
+import { AppRoutes } from "@navigation/app.router";
 import { NavigationProp, RouteProp } from "@react-navigation/native";
 
-export type TRootParamsList = {};
+export type TRootParamsList = {
+  [AppRoutes.DETAIL]: Record<string, unknown>;
+};
 
 export type TGatherStackParamList = TRootParamsList;
 
